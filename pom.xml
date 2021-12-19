@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>8</java.version>
 		<lombok.version>1.18.16</lombok.version>
+		<modelmapper.version>2.3.5</modelmapper.version>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
@@ -23,6 +24,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper.version}</version>
 		</dependency>
 
 		<!--	@Getter , @Setter 	-->
