@@ -39,6 +39,12 @@ public class BoardController {
                 .body(ResponseMessage.success(readBoardDtos));
     }
 
+    /**
+     * @param boardId 공지사항 번호
+     * @param board 수정할 공지사항 객체
+     * @return ResponseEntity<ResponseMessage>
+     *     공지사항 수정
+     */
     @PutMapping("/boards/{boardId}")
     public ResponseEntity<ResponseMessage> updateBoard(@PathVariable Long boardId,
                                                        @RequestBody Board board) {
@@ -47,6 +53,12 @@ public class BoardController {
 
     }
 
+    /**
+     * @param boardId 삭제할 공지사항 게시글 번호
+     * @return ResponseEntity<ResponseMessage>
+     *
+     *     공지사항 삭제
+     */
     @DeleteMapping("/boards/{boardId}")
     public ResponseEntity<ResponseMessage> deleteBoard(@PathVariable Long boardId){
         boolean isDelete = this.boardService.deleteBoard(boardId);
@@ -54,6 +66,12 @@ public class BoardController {
     }
 
 
+    /**
+     * @param board 공지 사항 겍체
+     * @return ReadBoardDto
+     *
+     *  공지사항 객체(Entity)를 조회 DTO로 변환
+    환*/
     private ReadBoardDto convertTReadBoardDto(Board board) {
         ReadBoardDto dto = modelMapper.map(board, ReadBoardDto.class);
         return dto;

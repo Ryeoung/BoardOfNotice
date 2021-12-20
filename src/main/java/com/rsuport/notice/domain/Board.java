@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -29,6 +31,9 @@ public class Board {
 
     @Column(name = "author")
     private String author;
+
+    @OneToMany(mappedBy = "board")
+    Set<BoardFile> boardFiles = new HashSet<>();
 
     @Column(name = "generate_time")
     private LocalDateTime generateTime;
