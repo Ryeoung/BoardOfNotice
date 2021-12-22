@@ -41,10 +41,12 @@ public class BoardDaoTest {
         b2.setTitle("제목2");
         b2.setContent("내용2");
 
+        //when
         this.boardDao.save(b1);
         this.boardDao.save(b2);
-
         List<Board> boards = this.boardDao.findAll();
+
+        //then
         Assertions.assertEquals(boards.size(), 2);
     }
 
@@ -56,10 +58,12 @@ public class BoardDaoTest {
         Board b1 = new Board();
         b1.setTitle("제목1");
         b1.setContent("내용1");
+        //when
         Board inserted = this.boardDao.save(b1);
         logger.warn(inserted.toString());
         Board finded = this.boardDao.findByBoardId(inserted.getBoardId());
+
+        //then
         Assertions.assertEquals("제목1", finded.getTitle());
     }
-
 }
