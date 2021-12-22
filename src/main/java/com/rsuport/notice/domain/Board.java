@@ -3,6 +3,8 @@ package com.rsuport.notice.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,7 +14,9 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "board")
+
 public class Board {
 
     @Id
